@@ -1,0 +1,126 @@
+/* Estilo básico do corpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container principal */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}
+
+/* Cabeçalho */
+h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Estilo dos botões principais */
+button {
+    display: inline-block;
+    width: 45%;
+    padding: 10px;
+    margin: 5px 2%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Container dos formulários */
+.form-container {
+    margin-top: 15px;
+}
+
+/* Esconde o formulário */
+.hidden {
+    display: none;
+}
+
+/* Estilo dos rótulos */
+label {
+    display: block;
+    text-align: left;
+    margin: 8px 0 4px;
+    color: #555;
+}
+
+/* Estilo dos inputs e selects */
+input, select {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Estilo do botão de submissão */
+form button {
+    background-color: #28a745;
+    width: 100%;
+    padding: 10px;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Estilo das seções do formulário */
+h2 {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    input, select {
+        width: calc(100% - 16px);
+        padding: 8px;
+    }
+
+    form button {
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+}

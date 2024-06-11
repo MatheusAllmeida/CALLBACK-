@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ativação FTTX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ativação FTTX</h1>
+        <button id="semDropBtn">Ativação-FTTX (SEM DROP)</button>
+        <button id="comDropBtn">Ativação-FTTX (COM DROP)</button>
+
+        <div id="formSemDrop" class="form-container hidden">
+            <h2>Ativação FTTX (SEM DROP)</h2>
+            <form id="formSemDropContent">
+                <label>
+                    Tipo Caixa de Atendimento:
+                    <select id="caixaAtendimentoSemDrop">
+                        <option value="">Selecione</option>
+                        <option value="EMENDA 1/8">EMENDA 1/8</option>
+                        <option value="EMENDA 1/16">EMENDA 1/16</option>
+                        <option value="CTO 1/8">CTO 1/8</option>
+                        <option value="CTO 1/16">CTO 1/16</option>
+                    </select>
+                </label>
+                <label>
+                    Caixa de Atendimento:
+                    <input type="text" id="caixaAtendimentoSemDropInput">
+                </label>
+                <label>
+                    OLT:
+                    <input type="text" id="oltSemDrop">
+                </label>
+                <label>
+                    Localização:
+                    <input type="text" id="localizacaoSemDrop">
+                </label>
+                <label>
+                    Cabo Drop (metros):
+                    <input type="number" id="caboDropSemDrop">
+                </label>
+                <label>
+                    Plano a ser contratado:
+                    <select id="planoSemDrop">
+                        <option value="">Selecione</option>
+                        <option value="WS5200 V3 ou AX2">GGNET COMBO EXTREME INTERNET 500Mbps</option>
+                        <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 600Mbps</option>
+                        <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 800Mbps</option>
+                        <option value="1 - Roteador WS5200s MESH">GGNET COMBO MESH INTERNET 400Mbps</option>
+                        <option value="1 - Roteador AX2 MESH">GGNET COMBO MESH INTERNET 500Mbps</option>
+                        <option value="1 ONT ou 1 AX2 MESH">GGNET COMBO MESH INTERNET 600Mbps</option>
+                        <option value="1 ONT ou 1 AX2 MESH">GGNET COMBO SUPER MESH INTERNET 800Mbps</option>
+                    </select>
+                </label>
+                <label>
+                    01 ONU:
+                    <select id="onuSemDrop">
+                        <option value="">Selecione</option>
+                        <option value="DATACOM">DATACOM</option>
+                        <option value="FIBERHOME">FIBERHOME</option>
+                    </select>
+                </label>
+                <label>
+                    01 PATCH CORD:
+                    <input type="text" id="patchCordSemDrop" value="Incluído" disabled>
+                </label>
+                <label>
+                    Precisa identificar cliente?
+                    <select id="identificarClienteSemDrop">
+                        <option value="">Selecione</option>
+                        <option value="SIM">SIM</option>
+                        <option value="NAO">NÃO</option>
+                    </select>
+                </label>
+                <button type="button" onclick="copiarInformacoes('SemDrop')">Copiar informações</button>
+            </form>
+        </div>
+
+        <div id="formComDrop" class="form-container hidden">
+            <h2>Ativação FTTX (COM DROP)</h2>
+            <form id="formComDropContent">
+                <label>
+                    Nome do DROP Existente:
+                    <input type="text" id="DropExistenteComDrop">
+                </label>
+                <label>
+                    Tipo Caixa de Atendimento:
+                    <select id="tipoCaixaAtendimentoComDrop">
+                        <option value="">Selecione</option>
+                        <option value="EMENDA 1/8">EMENDA 1/8</option>
+                        <option value="EMENDA 1/16">EMENDA 1/16</option>
+                        <option value="CTO 1/8">CTO 1/8</option>
+                        <option value="CTO 1/16">CTO 1/16</option>
+                    </select>
+                </label>
+                <label>
+                    Caixa de Atendimento:
+                    <input type="text" id="caixaAtendimentoComDropInput">
+                </label>
+                <label>
+                    OLT:
+                    <input type="text" id="oltComDrop">
+                </label>
+                <label>
+                    Localização:
+                    <input type="text" id="localizacaoComDrop">
+                </label>
+                <label>
+                    Cabo Drop (metros):
+                    <input type="number" id="caboDropComDrop">
+                </label>
+                <label>
+                    Plano a ser contratado:
+                    <select id="planoComDrop">
+                        <option value="">Selecione</option>
+                        <option value="WS5200 V3 ou AX2">GGNET COMBO EXTREME INTERNET 500Mbps</option>
+                        <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 600Mbps</option>
+                        <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 800Mbps</option>
+                        <option value="1 - Roteador WS5200s MESH">GGNET COMBO MESH INTERNET 400Mbps</option>
+                        <option value="1 - Roteador AX2 MESH">GGNET COMBO MESH INTERNET 500Mbps</option>
+                        <option value="1 ONT ou 1 AX2 MESH">GGNET COMBO MESH INTERNET 600Mbps</option>
+                        <option value="1 ONT ou 1 AX2 MESH">GGNET COMBO SUPER MESH INTERNET 800Mbps</option>
+                    </select>
+                </label>
+                <label>
+                    01 ONU:
+                    <select id="onuComDrop">
+                       
+                        <option value="">Selecione</option>
+                        <option value="DATACOM">DATACOM</option>
+                        <option value="FIBERHOME">FIBERHOME</option>
+                    </select>
+                </label>
+                <label>
+                    01 PATCH CORD:
+                    <input type="text" id="patchCordComDrop" value="Incluído" disabled>
+                </label>
+                <label>
+                    Precisa identificar cliente?
+                    <select id="identificarClienteComDrop">
+                        <option value="">Selecione</option>
+                        <option value="SIM">SIM</option>
+                        <option value="NAO">NÃO</option>
+                    </select>
+                </label>
+                <button type="button" onclick="copiarInformacoes('ComDrop')">Copiar informações</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
