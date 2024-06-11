@@ -26,7 +26,7 @@ function copiarInformacoes(tipo) {
 
         textoCopiado = `Ativação-FTTX (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop}metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU:${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
 
-        if (plano.includes('MESH')) {
+        if (plano.includes('.')) {
             textoCopiado += '\n-01 ROTEADOR WIRELESS SEGUNDO PONTO MESH';
         }
 
@@ -48,7 +48,7 @@ function copiarInformacoes(tipo) {
 
         textoCopiado = `Ativação-FTTX (com drop)\n\nPossivelmente exites drop em nome de: ${DropExistenteComDrop}\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop}metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU:${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
 
-        if (plano.includes('MESH')) {
+        if (plano.includes('.')) {
             textoCopiado += '\n-01 ROTEADOR WIRELESS SEGUNDO PONTO MESH';
         }
     }
