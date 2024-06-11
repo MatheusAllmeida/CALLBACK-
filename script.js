@@ -46,7 +46,7 @@ function copiarInformacoes(tipo) {
         caboDrop += 40;
         caboDrop = Math.ceil(caboDrop / 10) * 10;
 
-        textoCopiado = `Ativação-FTTX (com drop)\n\nPossivelmente exite drop em nome de: ${DropExistenteComDrop}\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop}metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU:${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
+        textoCopiado = `Ativação-FTTX (com drop)\n\nPossivelmente exites drop em nome de: ${DropExistenteComDrop}\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop}metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU:${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
 
         if (plano.includes('MESH')) {
             textoCopiado += '\n-01 ROTEADOR WIRELESS SEGUNDO PONTO MESH';
