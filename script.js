@@ -24,13 +24,12 @@ function copiarInformacoes(tipo) {
         caboDrop += 40;
         caboDrop = Math.ceil(caboDrop / 10) * 10;
 
-        textoCopiado = `Ativação-FTTX (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop}metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU:${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
+        textoCopiado = `Ativação-FTTX (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
 
         if (plano.includes('.')) {
             textoCopiado += '\n-01 ROTEADOR WIRELESS SEGUNDO PONTO MESH';
         }
 
-        
     } else if (tipo === 'ComDrop') {
         const DropExistenteComDrop = document.getElementById('DropExistenteComDrop').value;
         const tipoCaixaAtendimento = document.getElementById('tipoCaixaAtendimentoComDrop').value;
@@ -46,7 +45,7 @@ function copiarInformacoes(tipo) {
         caboDrop += 40;
         caboDrop = Math.ceil(caboDrop / 10) * 10;
 
-        textoCopiado = `Ativação-FTTX (com drop)\n\nPossivelmente exites drop em nome de: ${DropExistenteComDrop}\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop}metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU:${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
+        textoCopiado = `Ativação-FTTX (com drop)\n\nPossivelmente existe drop em nome de: ${DropExistenteComDrop}\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
 
         if (plano.includes('.')) {
             textoCopiado += '\n-01 ROTEADOR WIRELESS SEGUNDO PONTO MESH';
@@ -58,5 +57,10 @@ function copiarInformacoes(tipo) {
         .catch(err => console.error('Erro ao copiar texto: ', err));
 }
 
-
-
+function limparFormulario(tipo) {
+    if (tipo === 'SemDrop') {
+        document.getElementById('formSemDropContent').reset();
+    } else if (tipo === 'ComDrop') {
+        document.getElementById('formComDropContent').reset();
+    }
+}
