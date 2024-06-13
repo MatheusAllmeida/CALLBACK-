@@ -1,82 +1,66 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const semDropBtn = document.getElementById('semDropBtn');
-    const comDropBtn = document.getElementById('comDropBtn');
-    const formSemDrop = document.getElementById('formSemDrop');
-    const formComDrop = document.getElementById('formComDrop');
-
-    semDropBtn.addEventListener('click', () => {
-        formSemDrop.classList.toggle('hidden');
-        formComDrop.classList.add('hidden');
-    });
-
-    comDropBtn.addEventListener('click', () => {
-        formComDrop.classList.toggle('hidden');
-        formSemDrop.classList.add('hidden');
-    });
+document.getElementById('semDropBtn').addEventListener('click', function () {
+    document.getElementById('formSemDrop').classList.remove('hidden');
+    document.getElementById('formComDrop').classList.add('hidden');
 });
 
-function copiarInformacoes(formTipo) {
-    let info = '';
+document.getElementById('comDropBtn').addEventListener('click', function () {
+    document.getElementById('formSemDrop').classList.add('hidden');
+    document.getElementById('formComDrop').classList.remove('hidden');
+});
 
-    if (formTipo === 'SemDrop') {
+function copiarInformacoes(tipo) {
+    let textoCopiado = '';
+    if (tipo === 'SemDrop') {
         const tipoCaixaAtendimento = document.getElementById('caixaAtendimentoSemDrop').value;
         const caixaAtendimento = document.getElementById('caixaAtendimentoSemDropInput').value;
         const olt = document.getElementById('oltSemDrop').value;
         const localizacao = document.getElementById('localizacaoSemDrop').value;
-        const caboDrop = document.getElementById('caboDropSemDrop').value;
+        let caboDrop = parseInt(document.getElementById('caboDropSemDrop').value, 10);
         const plano = document.getElementById('planoSemDrop').value;
-        const onu = document.getElementById('onuSemDrop').value;
-        const patchCord = document.getElementById('patchCordSemDrop').value;
         const identificarCliente = document.getElementById('identificarClienteSemDrop').value;
+        const onu = document.getElementById('onuSemDrop').value;
 
-        info = `
-        Tipo Caixa de Atendimento: ${tipoCaixaAtendimento}
-        Caixa de Atendimento: ${caixaAtendimento}
-        OLT: ${olt}
-        Localização: ${localizacao}
-        Cabo Drop (metros): ${caboDrop}
-        Plano a ser contratado: ${plano}
-        01 ONU: ${onu}
-        01 PATCH CORD: ${patchCord}
-        Precisa identificar cliente? ${identificarCliente}
-        `;
-    } else if (formTipo === 'ComDrop') {
-        const dropExistente = document.getElementById('DropExistenteComDrop').value;
+        // Adicionando 40 metros ao cabo drop e arredondando para o múltiplo de 10 mais próximo
+        caboDrop += 40;
+        caboDrop = Math.ceil(caboDrop / 10) * 10;
+
+        textoCopiado = `Ativação-FTTX (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
+
+        if (plano.includes('.')) {
+            textoCopiado += '\n-01 ROTEADOR WIRELESS SEGUNDO PONTO MESH';
+        }
+
+    } else if (tipo === 'ComDrop') {
+        const DropExistenteComDrop = document.getElementById('DropExistenteComDrop').value;
         const tipoCaixaAtendimento = document.getElementById('tipoCaixaAtendimentoComDrop').value;
         const caixaAtendimento = document.getElementById('caixaAtendimentoComDropInput').value;
         const olt = document.getElementById('oltComDrop').value;
         const localizacao = document.getElementById('localizacaoComDrop').value;
-        const caboDrop = document.getElementById('caboDropComDrop').value;
+        let caboDrop = parseInt(document.getElementById('caboDropComDrop').value, 10);
         const plano = document.getElementById('planoComDrop').value;
-        const onu = document.getElementById('onuComDrop').value;
-        const patchCord = document.getElementById('patchCordComDrop').value;
         const identificarCliente = document.getElementById('identificarClienteComDrop').value;
+        const onu = document.getElementById('onuComDrop').value;
 
-        info = `
-        Nome do DROP Existente: ${dropExistente}
-        Tipo Caixa de Atendimento: ${tipoCaixaAtendimento}
-        Caixa de Atendimento: ${caixaAtendimento}
-        OLT: ${olt}
-        Localização: ${localizacao}
-        Cabo Drop (metros): ${caboDrop}
-        Plano a ser contratado: ${plano}
-        01 ONU: ${onu}
-        01 PATCH CORD: ${patchCord}
-        Precisa identificar cliente? ${identificarCliente}
-        `;
+        // Adicionando 40 metros ao cabo drop e arredondando para o múltiplo de 10 mais próximo
+        caboDrop += 40;
+        caboDrop = Math.ceil(caboDrop / 10) * 10;
+
+        textoCopiado = `Ativação-FTTX (com drop)\n\nPossivelmente existe drop em nome de: ${DropExistenteComDrop}\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
+
+        if (plano.includes('.')) {
+            textoCopiado += '\n-01 ROTEADOR WIRELESS SEGUNDO PONTO MESH';
+        }
     }
 
-    navigator.clipboard.writeText(info.trim()).then(() => {
-        alert('Informações copiadas para a área de transferência!');
-    }, () => {
-        alert('Falha ao copiar informações.');
-    });
+    navigator.clipboard.writeText(textoCopiado)
+        .then(() => alert('Informações copiadas para área de transferência'))
+        .catch(err => console.error('Erro ao copiar texto: ', err));
 }
 
-function limparFormulario(formTipo) {
-    if (formTipo === 'SemDrop') {
+function limparFormulario(tipo) {
+    if (tipo === 'SemDrop') {
         document.getElementById('formSemDropContent').reset();
-    } else if (formTipo === 'ComDrop') {
+    } else if (tipo === 'ComDrop') {
         document.getElementById('formComDropContent').reset();
     }
 }
