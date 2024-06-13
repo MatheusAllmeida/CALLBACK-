@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ativação FTTX</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="ativacao.png" type="image/png">
 </head>
 <body>
     <div class="container">
@@ -74,8 +75,10 @@
                         <option value="NAO">NÃO</option>
                     </select>
                 </label>
-                <button type="button" onclick="copiarInformacoes('SemDrop')">Copiar informações</button>
-                <button type="button" onclick="limparFormulario('SemDrop')">Limpar</button>
+                <div class="buttons-container">
+                    <button type="button" onclick="copiarInformacoes('SemDrop')">Copiar informações</button>
+                    <button type="button" onclick="limparFormulario('SemDrop')">Limpar</button>
+                </div>
             </form>
         </div>
 
@@ -145,8 +148,10 @@
                         <option value="NAO">NÃO</option>
                     </select>
                 </label>
-                <button type="button" onclick="copiarInformacoes('ComDrop')">Copiar informações</button>
-                <button type="button" onclick="limparFormulario('ComDrop')">Limpar</button>
+                <div class="buttons-container">
+                    <button type="button" onclick="copiarInformacoes('ComDrop')">Copiar informações</button>
+                    <button type="button" onclick="limparFormulario('ComDrop')">Limpar</button>
+                </div>
             </form>
         </div>
     </div>
