@@ -6,21 +6,21 @@
     <title>Ativação FTTX</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="ativacao.png" type="image/x-icon">
-    <!-- Alternativamente, se você tiver um arquivo PNG -->
-    <!-- <link rel="icon" href="favicon.png" type="image/png"> -->
 </head>
 <body>
     <div class="container">
         <h1>Ativação FTTX</h1>
-        <button id="semDropBtn">Ativação-FTTX (SEM DROP)</button>
-        <button id="comDropBtn">Ativação-FTTX (COM DROP)</button>
-
+        <button class="toggleBtn" data-target="SemDrop">Ativação-FTTX (SEM DROP)</button>
+        <button class="toggleBtn" data-target="ComDrop">Ativação-FTTX (COM DROP)</button>
+        <button class="toggleBtn" data-target="MudSemDrop">Mudança de Endereço (SEM DROP)</button>
+        <button class="toggleBtn" data-target="MudComDrop">Mudança de Endereço (SEM DROP)</button>
+        <button class="toggleBtn" data-target="Atenuacao">Atenuação</button>
+        
         <div id="formSemDrop" class="form-container hidden">
             <h2>Ativação FTTX (SEM DROP)</h2>
-            <form id="formSemDropContent">
-                <label>
-                    Tipo Caixa de Atendimento:
-                    <select id="caixaAtendimentoSemDrop">
+            <form class="formContent" data-type="SemDrop">
+                <label>Tipo Caixa de Atendimento:
+                    <select class="tipoCaixaAtendimento">
                         <option value="">Selecione</option>
                         <option value="EMENDA 1/8">EMENDA 1/8</option>
                         <option value="EMENDA 1/16">EMENDA 1/16</option>
@@ -28,25 +28,20 @@
                         <option value="CTO 1/16">CTO 1/16</option>
                     </select>
                 </label>
-                <label>
-                    Caixa de Atendimento:
-                    <input type="text" id="caixaAtendimentoSemDropInput">
+                <label>Caixa de Atendimento:
+                    <input type="text" class="caixaAtendimento">
                 </label>
-                <label>
-                    OLT:
-                    <input type="text" id="oltSemDrop">
+                <label>OLT:
+                    <input type="text" class="olt">
                 </label>
-                <label>
-                    Localização:
-                    <input type="text" id="localizacaoSemDrop">
+                <label>Localização:
+                    <input type="text" class="localizacao">
                 </label>
-                <label>
-                    Cabo Drop (metros):
-                    <input type="number" id="caboDropSemDrop">
+                <label>Cabo Drop (metros):
+                    <input type="number" class="caboDrop">
                 </label>
-                <label>
-                    Plano a ser contratado:
-                    <select id="planoSemDrop">
+                <label>Plano a ser contratado:
+                    <select class="plano">
                         <option value="">Selecione</option>
                         <option value="WS5200 V3 ou AX2">GGNET COMBO EXTREME INTERNET 500Mbps</option>
                         <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 600Mbps</option>
@@ -57,43 +52,39 @@
                         <option value="1 ONT ou 1 AX2.">GGNET COMBO SUPER MESH INTERNET 800Mbps</option>
                     </select>
                 </label>
-                <label>
-                    01 ONU:
-                    <select id="onuSemDrop">
+                <label>01 ONU:
+                    <select class="onu">
                         <option value="">Selecione</option>
                         <option value="DATACOM">DATACOM</option>
                         <option value="FIBERHOME">FIBERHOME</option>
                     </select>
                 </label>
-                <label>
-                    01 PATCH CORD:
-                    <input type="text" id="patchCordSemDrop" value="Incluído" disabled>
+                <label>01 PATCH CORD:
+                    <input type="text" value="Incluído" disabled>
                 </label>
-                <label>
-                    Precisa identificar cliente?
-                    <select id="identificarClienteSemDrop">
+                <label>Precisa identificar cliente?
+                    <select class="identificarCliente">
                         <option value="">Selecione</option>
                         <option value="SIM">SIM</option>
                         <option value="NAO">NÃO</option>
                     </select>
                 </label>
                 <div class="buttons-container">
-                    <button type="button" onclick="copiarInformacoes('SemDrop')">Copiar informações</button>
-                    <button type="button" onclick="limparFormulario('SemDrop')">Limpar</button>
+                    <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
                 </div>
             </form>
         </div>
 
+        <!--Ativação nova com DROP-->
         <div id="formComDrop" class="form-container hidden">
             <h2>Ativação FTTX (COM DROP)</h2>
-            <form id="formComDropContent">
-                <label>
-                    Nome do DROP Existente:
-                    <input type="text" id="DropExistenteComDrop">
+            <form class="formContent" data-type="ComDrop">
+                <label>Nome do DROP Existente:
+                    <input type="text" class="dropExistente">
                 </label>
-                <label>
-                    Tipo Caixa de Atendimento:
-                    <select id="tipoCaixaAtendimentoComDrop">
+                <label>Tipo Caixa de Atendimento:
+                    <select class="tipoCaixaAtendimento">
                         <option value="">Selecione</option>
                         <option value="EMENDA 1/8">EMENDA 1/8</option>
                         <option value="EMENDA 1/16">EMENDA 1/16</option>
@@ -101,25 +92,20 @@
                         <option value="CTO 1/16">CTO 1/16</option>
                     </select>
                 </label>
-                <label>
-                    Caixa de Atendimento:
-                    <input type="text" id="caixaAtendimentoComDropInput">
+                <label>Caixa de Atendimento:
+                    <input type="text" class="caixaAtendimento">
                 </label>
-                <label>
-                    OLT:
-                    <input type="text" id="oltComDrop">
+                <label>OLT:
+                    <input type="text" class="olt">
                 </label>
-                <label>
-                    Localização:
-                    <input type="text" id="localizacaoComDrop">
+                <label>Localização:
+                    <input type="text" class="localizacao">
                 </label>
-                <label>
-                    Cabo Drop (metros):
-                    <input type="number" id="caboDropComDrop">
+                <label>Cabo Drop (metros):
+                    <input type="number" class="caboDrop">
                 </label>
-                <label>
-                    Plano a ser contratado:
-                    <select id="planoComDrop">
+                <label>Plano a ser contratado:
+                    <select class="plano">
                         <option value="">Selecione</option>
                         <option value="WS5200 V3 ou AX2">GGNET COMBO EXTREME INTERNET 500Mbps</option>
                         <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 600Mbps</option>
@@ -130,34 +116,170 @@
                         <option value="1 ONT ou 1 AX2.">GGNET COMBO SUPER MESH INTERNET 800Mbps</option>
                     </select>
                 </label>
-                <label>
-                    01 ONU:
-                    <select id="onuComDrop">
+                <label>01 ONU:
+                    <select class="onu">
                         <option value="">Selecione</option>
                         <option value="DATACOM">DATACOM</option>
                         <option value="FIBERHOME">FIBERHOME</option>
                     </select>
                 </label>
-                <label>
-                    01 PATCH CORD:
-                    <input type="text" id="patchCordComDrop" value="Incluído" disabled>
+                <label>01 PATCH CORD:
+                    <input type="text" value="Incluído" disabled>
                 </label>
-                <label>
-                    Precisa identificar cliente?
-                    <select id="identificarClienteComDrop">
+                <label>Precisa identificar cliente?
+                    <select class="identificarCliente">
                         <option value="">Selecione</option>
                         <option value="SIM">SIM</option>
                         <option value="NAO">NÃO</option>
                     </select>
                 </label>
                 <div class="buttons-container">
-                    <button type="button" onclick="copiarInformacoes('ComDrop')">Copiar informações</button>
-                    <button type="button" onclick="limparFormulario('ComDrop')">Limpar</button>
+                    <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Mudança de endereço sem drop-->
+        <div id="formMudSemDrop" class="form-container hidden">
+            <h2>Mudança de endereço (SEM DROP)</h2>
+            <form class="formContent" data-type="MudSemDrop">
+                <label>Tipo Caixa de Atendimento:
+                    <select class="tipoCaixaAtendimento">
+                        <option value="">Selecione</option>
+                        <option value="EMENDA 1/8">EMENDA 1/8</option>
+                        <option value="EMENDA 1/16">EMENDA 1/16</option>
+                        <option value="CTO 1/8">CTO 1/8</option>
+                        <option value="CTO 1/16">CTO 1/16</option>
+                    </select>
+                </label>
+                <label>Caixa de Atendimento:
+                    <input type="text" class="caixaAtendimento">
+                </label>
+                <label>OLT:
+                    <input type="text" class="olt">
+                </label>
+                <label>Localização:
+                    <input type="text" class="localizacao">
+                </label>
+                <label>Cabo Drop (metros):
+                    <input type="number" class="caboDrop">
+                </label>
+                <label>Plano a ser contratado:
+                    <select class="plano">
+                        <option value="">Selecione</option>
+                        <option value="WS5200 V3 ou AX2">GGNET COMBO EXTREME INTERNET 500Mbps</option>
+                        <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 600Mbps</option>
+                        <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 800Mbps</option>
+                        <option value="1 - Roteador WS5200s.">GGNET COMBO MESH INTERNET 400Mbps</option>
+                        <option value="1 - Roteador AX2.">GGNET COMBO MESH INTERNET 500Mbps</option>
+                        <option value="1 ONT ou 1 AX2.">GGNET COMBO MESH INTERNET 600Mbps</option>
+                        <option value="1 ONT ou 1 AX2.">GGNET COMBO SUPER MESH INTERNET 800Mbps</option>
+                    </select>
+                </label>
+                <label>01 ONU:
+                    <select class="onu">
+                        <option value="">Selecione</option>
+                        <option value="DATACOM">DATACOM</option>
+                        <option value="FIBERHOME">FIBERHOME</option>
+                    </select>
+                </label>
+                <label>01 PATCH CORD:
+                    <input type="text" value="Incluído" disabled>
+                </label>
+                <label>Precisa identificar cliente?
+                    <select class="identificarCliente">
+                        <option value="">Selecione</option>
+                        <option value="SIM">SIM</option>
+                        <option value="NAO">NÃO</option>
+                    </select>
+                </label>
+                <div class="buttons-container">
+                    <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Mudança de endereço com drop-->
+        <div id="formMudComDrop" class="form-container hidden">
+            <h2>Mudança de Endereço (COM DROP)</h2>
+            <form class="formContent" data-type="ComDrop">
+                <label>Nome do DROP Existente:
+                    <input type="text" class="dropExistente">
+                </label>
+                <label>Tipo Caixa de Atendimento:
+                    <select class="tipoCaixaAtendimento">
+                        <option value="">Selecione</option>
+                        <option value="EMENDA 1/8">EMENDA 1/8</option>
+                        <option value="EMENDA 1/16">EMENDA 1/16</option>
+                        <option value="CTO 1/8">CTO 1/8</option>
+                        <option value="CTO 1/16">CTO 1/16</option>
+                    </select>
+                </label>
+                <label>Caixa de Atendimento:
+                    <input type="text" class="caixaAtendimento">
+                </label>
+                <label>OLT:
+                    <input type="text" class="olt">
+                </label>
+                <label>Localização:
+                    <input type="text" class="localizacao">
+                </label>
+                <label>Cabo Drop (metros):
+                    <input type="number" class="caboDrop">
+                </label>
+                <label>Plano a ser contratado:
+                    <select class="plano">
+                        <option value="">Selecione</option>
+                        <option value="WS5200 V3 ou AX2">GGNET COMBO EXTREME INTERNET 500Mbps</option>
+                        <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 600Mbps</option>
+                        <option value="Roteador AX2">GGNET COMBO EXTREME INTERNET 800Mbps</option>
+                        <option value="1 - Roteador WS5200s.">GGNET COMBO MESH INTERNET 400Mbps</option>
+                        <option value="1 - Roteador AX2.">GGNET COMBO MESH INTERNET 500Mbps</option>
+                        <option value="1 ONT ou 1 AX2.">GGNET COMBO MESH INTERNET 600Mbps</option>
+                        <option value="1 ONT ou 1 AX2.">GGNET COMBO SUPER MESH INTERNET 800Mbps</option>
+                    </select>
+                </label>
+                <label>01 ONU:
+                    <select class="onu">
+                        <option value="">Selecione</option>
+                        <option value="DATACOM">DATACOM</option>
+                        <option value="FIBERHOME">FIBERHOME</option>
+                    </select>
+                </label>
+                <label>01 PATCH CORD:
+                    <input type="text" value="Incluído" disabled>
+                </label>
+                <label>Precisa identificar cliente?
+                    <select class="identificarCliente">
+                        <option value="">Selecione</option>
+                        <option value="SIM">SIM</option>
+                        <option value="NAO">NÃO</option>
+                    </select>
+                </label>
+                <div class="buttons-container">
+                    <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
+                </div>
+            </form>
+        </div>
+        <div id="formAtenuacao" class="form-container hidden">
+            <h2>Atenuação</h2>
+            <form class="formContent" data-type="Atenuacao">
+                <label>Atenuado caixa:
+                    <input type="text" class="atenuadoCaixa">
+                </label>
+                <label>Usado vaga em nome de:
+                    <input type="text" class="usadoVaga">
+                </label>
+                <div class="buttons-container">
+                    <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
                 </div>
             </form>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
