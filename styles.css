@@ -1,7 +1,7 @@
 /* Estilo básico do corpo */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    background-color: #ebebeb;
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,7 +12,7 @@ body {
 
 /* Container principal */
 .container {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 10px; /* Reduzido */
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
