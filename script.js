@@ -13,6 +13,7 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
         const form = this.closest('.formContent');
         const tipo = form.dataset.type;
         let textoCopiado = '';
+
         const tipoCaixaAtendimento = form.querySelector('.tipoCaixaAtendimento')?.value || '';
         const caixaAtendimento = form.querySelector('.caixaAtendimento')?.value || '';
         const olt = form.querySelector('.olt')?.value || '';
@@ -27,11 +28,6 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
         const atenuadoCaixa = form.querySelector('.atenuadoCaixa')?.value || '';
         const usadoVaga = form.querySelector('.usadoVaga')?.value || '';
 
-        // Verificar se todos os campos obrigatórios estão preenchidos
-        if (!tipoCaixaAtendimento || !caixaAtendimento || !olt || !localizacao || !caboDropInput.value || !plano || !identificarCliente || !onu) {
-            alert('Por favor, preencha todos os campos obrigatórios antes de copiar as informações.');
-            return;
-        }
 
         if (tipo === 'SemDrop') {
             textoCopiado = `Ativação-FTTX (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;

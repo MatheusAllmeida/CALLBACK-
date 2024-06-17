@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CallBack</title>
+    <title>Ativação FTTX</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="25471.png" type="image/callback-icon">
+    <link rel="icon" href="25471.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
-        <h1>CallBack</h1>
+        <h1>Ativação FTTX</h1>
         <button class="toggleBtn" data-target="SemDrop">Ativação-FTTX (SEM DROP)</button>
         <button class="toggleBtn" data-target="ComDrop">Ativação-FTTX (COM DROP)</button>
         <button class="toggleBtn" data-target="MudSemDrop">Mudança de Endereço (SEM DROP)</button>
-        <button class="toggleBtn" data-target="MudComDrop">Mudança de Endereço (SEM DROP)</button>
+        <button class="toggleBtn" data-target="MudComDrop">Mudança de Endereço (COM DROP)</button>
         <button class="toggleBtn" data-target="Atenuacao">Atenuação</button>
         
         <div id="formSemDrop" class="form-container hidden">
@@ -194,6 +194,9 @@
                         <option value="NAO">NÃO</option>
                     </select>
                 </label>
+                <label>Observação:
+                    <input type="text" class="observacao">
+                </label>
                 <div class="buttons-container">
                     <button type="button" class="copiarBtn">Copiar informações</button>
                     <button type="button" class="voltarBtn">Voltar</button>
@@ -203,8 +206,8 @@
 
         <!--Mudança de endereço com drop-->
         <div id="formMudComDrop" class="form-container hidden">
-            <h2>Mudança de Endereço (COM DROP)</h2>
-            <form class="formContent" data-type="ComDrop">
+            <h2>Mudança de endereço (COM DROP)</h2>
+            <form class="formContent" data-type="MudComDrop">
                 <label>Nome do DROP Existente:
                     <input type="text" class="dropExistente">
                 </label>
@@ -264,13 +267,15 @@
                 </div>
             </form>
         </div>
+
+        <!--Atenuação-->
         <div id="formAtenuacao" class="form-container hidden">
-            <h2>Atenuação</h2>
+            <h2>ATENUAÇÃO</h2>
             <form class="formContent" data-type="Atenuacao">
                 <label>Atenuado caixa:
                     <input type="text" class="atenuadoCaixa">
                 </label>
-                <label>Usado vaga em nome de:
+                <label>Utilizado vaga de:
                     <input type="text" class="usadoVaga">
                 </label>
                 <div class="buttons-container">
@@ -280,6 +285,7 @@
             </form>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
