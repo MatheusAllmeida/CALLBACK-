@@ -66,10 +66,7 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
             .then(() => alert('Informações copiadas para área de transferência'))
             .catch(err => console.error('Erro ao copiar texto: ', err));
     });
-});
 
-// Adicionar evento de clique aos botões de voltar
-document.querySelectorAll('.voltarBtn').forEach(button => {
     button.addEventListener('click', function () {
         const form = this.closest('.form-container');
         form.classList.add('hidden');
@@ -78,3 +75,4 @@ document.querySelectorAll('.voltarBtn').forEach(button => {
         resetForms();
     });
 });
+
