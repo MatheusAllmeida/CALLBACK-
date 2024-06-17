@@ -118,6 +118,8 @@ footer {
     margin-top: 20px;
     font-size: 14px;
     color: #333;
+    position: fixed;
+    bottom: 0;
 }
 
 /* Responsividade */
