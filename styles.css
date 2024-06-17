@@ -35,7 +35,7 @@ button {
     width: 45%;
     padding: 6px; /* Reduzido */
     margin: 4px 2%; /* Reduzido */
-    background-color: #d400ff;;
+    background-color: #ff0000;
     color: white;
     border: none;
     border-radius: 8px;
@@ -45,7 +45,7 @@ button {
 }
 
 button:hover {
-    background-color: #83059c;
+    background-color: #af0000;
 }
 
 /* Container dos formulários */
@@ -79,7 +79,7 @@ input, select {
 
 /* Estilo do botão de submissão */
 form button {
-    background-color: #d400ff;
+    background-color: #ff0000;
     width: 100%;
     padding: 6px; /* Reduzido */
 }
@@ -90,7 +90,7 @@ form {
 }
 
 form button:hover {
-    background-color: #83059c;;
+    background-color: #af0000;
 }
 
 /* Estilo das seções do formulário */
