@@ -1,28 +1,3 @@
-// Função para resetar todos os formulários
-function resetForms() {
-    document.querySelectorAll('.form-container form').forEach(form => {
-        form.reset();
-    });
-}
-
-// Adicionar evento de clique aos botões de alternância
-document.querySelectorAll('.toggleBtn').forEach(button => {
-    button.addEventListener('click', function () {
-        const target = this.dataset.target;
-        
-        // Resetar todos os formulários antes de esconder
-        resetForms();
-        
-        // Esconder todos os formulários
-        document.querySelectorAll('.form-container').forEach(form => {
-            form.classList.add('hidden');
-        });
-        
-        // Mostrar o formulário alvo
-        document.getElementById(`form${target}`).classList.remove('hidden');
-    });
-});
-
 // Adicionar evento de clique aos botões de copiar
 document.querySelectorAll('.copiarBtn').forEach(button => {
     button.addEventListener('click', function () {
@@ -34,9 +9,9 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
         const caixaAtendimento = form.querySelector('.caixaAtendimento')?.value || '';
         const olt = form.querySelector('.olt')?.value || '';
         const localizacao = form.querySelector('.localizacao')?.value || '';
-        let caboDrop = parseInt(form.querySelector('.caboDrop')?.value, 10) || 0;
+        let caboDrop = parseFloat(form.querySelector('.caboDrop')?.value) || 0;
         caboDrop += 40;
-        caboDrop = Math.ceil(caboDrop / 10) * 10;
+        caboDrop = Math.round(caboDrop / 10) * 10; // Arredonda para o múltiplo de 10 mais próximo
         const plano = form.querySelector('.plano')?.value || '';
         const identificarCliente = form.querySelector('.identificarCliente')?.value || '';
         const onu = form.querySelector('.onu')?.value || '';
@@ -66,13 +41,4 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
             .then(() => alert('Informações copiadas para área de transferência'))
             .catch(err => console.error('Erro ao copiar texto: ', err));
     });
-
-    button.addEventListener('click', function () {
-        const form = this.closest('.form-container');
-        form.classList.add('hidden');
-        
-        // Resetar todos os formulários ao voltar
-        resetForms();
-    });
 });
-
