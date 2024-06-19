@@ -67,6 +67,10 @@ label {
     color: #cecece;
 }
 
+#listaElementos {
+    color: white;
+}
+
 
 /* Estilo dos campos de entrada */
 input, select {
