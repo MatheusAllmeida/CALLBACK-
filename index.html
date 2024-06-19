@@ -10,11 +10,13 @@
 <body>
     <div class="container">
         <h1>Callback</h1>
-        <button class="toggleBtn" data-target="SemDrop">Ativação-FTTX (SEM DROP)</button>
-        <button class="toggleBtn" data-target="ComDrop">Ativação-FTTX (COM DROP)</button>
-        <button class="toggleBtn" data-target="MudSemDrop">Mudança de Endereço (SEM DROP)</button>
-        <button class="toggleBtn" data-target="MudComDrop">Mudança de Endereço (COM DROP)</button>
-        <button class="toggleBtn" data-target="Atenuacao">Atenuação</button>
+        <div id="toggleButtons">
+            <button class="toggleBtn" data-target="SemDrop">Ativação-FTTX (SEM DROP)</button>
+            <button class="toggleBtn" data-target="ComDrop">Ativação-FTTX (COM DROP)</button>
+            <button class="toggleBtn" data-target="MudSemDrop">Mudança de Endereço (SEM DROP)</button>
+            <button class="toggleBtn" data-target="MudComDrop">Mudança de Endereço (COM DROP)</button>
+            <button class="toggleBtn" data-target="Atenuacao">Atenuação</button>
+        </div>
         
         <div id="formSemDrop" class="form-container hidden">
             <h2>Ativação FTTX (SEM DROP)</h2>
@@ -71,6 +73,7 @@
                 </label>
                 <div class="buttons-container">
                     <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
                 </div>
             </form>
         </div>
@@ -134,6 +137,7 @@
                 </label>
                 <div class="buttons-container">
                     <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
                 </div>
             </form>
         </div>
@@ -197,6 +201,7 @@
                 </label>
                 <div class="buttons-container">
                     <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
                 </div>
             </form>
         </div>
@@ -260,6 +265,7 @@
                 </label>
                 <div class="buttons-container">
                     <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
                 </div>
             </form>
         </div>
@@ -276,6 +282,7 @@
                 </label>
                 <div class="buttons-container">
                     <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
                 </div>
             </form>
         </div>

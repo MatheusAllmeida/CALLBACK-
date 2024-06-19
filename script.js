@@ -20,6 +20,23 @@ document.querySelectorAll('.toggleBtn').forEach(button => {
 
         // Mostrar o formulário alvo
         document.getElementById(`form${target}`).classList.remove('hidden');
+        // Esconder os botões de alternância
+        document.getElementById('toggleButtons').classList.add('hidden');
+    });
+});
+
+// Adicionar evento de clique aos botões de voltar
+document.querySelectorAll('.voltarBtn').forEach(button => {
+    button.addEventListener('click', function () {
+        // Esconder o formulário atual
+        const form = this.closest('.form-container');
+        form.classList.add('hidden');
+
+        // Mostrar os botões de alternância
+        document.getElementById('toggleButtons').classList.remove('hidden');
+
+        // Resetar todos os formulários
+        resetForms();
     });
 });
 
@@ -101,7 +118,6 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
 
     button.addEventListener('click', function () {
         const form = this.closest('.form-container');
-        form.classList.add('hidden');
 
         // Resetar todos os formulários ao voltar
         resetForms();
