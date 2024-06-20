@@ -11,6 +11,7 @@
     <div class="container">
         <div id="toggleButtons">
             <h1>Callback</h1>
+            <button class="toggleBtn" data-target="Telefonia">Ativação Telefonia</button>
             <button class="toggleBtn" data-target="SemDrop">Ativação-FTTX (SEM DROP)</button>
             <button class="toggleBtn" data-target="ComDrop">Ativação-FTTX (COM DROP)</button>
             <button class="toggleBtn" data-target="MudSemDrop">Mudança de Endereço (SEM DROP)</button>
@@ -19,6 +20,48 @@
             <button class="toggleBtn" data-target="Atenuacao">Atenuação</button>
         </div>
 
+        <div id="formTelefonia" class="form-container hidden">
+            <h2>Telefonia</h2>
+            <form class="formContent" data-type="Telefonia">
+                <label>Tipo Caixa de Atendimento:
+                    <select class="tipoCaixaAtendimento">
+                        <option value="">Selecione</option>
+                        <option value="EMENDA 1/8">EMENDA 1/8</option>
+                        <option value="EMENDA 1/16">EMENDA 1/16</option>
+                        <option value="CTO 1/8">CTO 1/8</option>
+                        <option value="CTO 1/16">CTO 1/16</option>
+                    </select>
+                </label>
+                <label>Caixa de Atendimento:
+                    <input type="text" class="caixaAtendimento" placeholder="CE-CDR-859">
+                </label>
+                <label>OLT:
+                    <input type="text" class="olt" placeholder="W S1 P16">
+                </label>
+                <label>Localização:
+                    <input type="text" class="localizacao" placeholder="-26.781634354692695, -51.043611348496405">
+                </label>
+                <label>Cabo Drop (metros):
+                    <input type="number" class="caboDrop" placeholder="119.5">
+                </label>
+                <label>01 PATCH CORD:
+                    <input type="text" value="Incluído" disabled>
+                </label>
+                <label>Precisa identificar cliente?
+                    <select class="identificarCliente">
+                        <option value="">Selecione</option>
+                        <option value="SIM">SIM</option>
+                        <option value="NAO">NÃO</option>
+                    </select>
+                </label>
+                <div class="buttons-container">
+                    <button type="button" class="copiarBtn">Copiar informações</button>
+                    <button type="button" class="voltarBtn">Voltar</button>
+                </div>
+            </form>
+        </div>
+
+    
         <div id="formSemDrop" class="form-container hidden">
             <h2>Ativação FTTX (SEM DROP)</h2>
             <form class="formContent" data-type="SemDrop">
