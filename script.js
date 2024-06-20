@@ -193,14 +193,7 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
         let camposObrigatorios;
 
         // Verificar os campos obrigatórios com base no tipo de formulário
-        if (tipo === 'Telefonia') {
-            camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, identificarCliente];
-            if (!verificarCamposPreenchidos(camposObrigatorios)) {
-                alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
-                return;
-            }
-            textoCopiado = `Ativação-FTTX (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
-        } else if (tipo === 'SemDrop') {
+         if (tipo === 'SemDrop') {
             camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, plano, identificarCliente, onu];
             if (!verificarCamposPreenchidos(camposObrigatorios)) {
                 alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
