@@ -193,7 +193,14 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
         let camposObrigatorios;
 
         // Verificar os campos obrigatórios com base no tipo de formulário
-        if (tipo === 'SemDrop') {
+        if (tipo === 'Telefonia') {
+            camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, identificarCliente];
+            if (!verificarCamposPreenchidos(camposObrigatorios)) {
+                alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
+                return;
+            }
+            textoCopiado = `Ativação-FTTX (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
+        } else if (tipo === 'SemDrop') {
             camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, plano, identificarCliente, onu];
             if (!verificarCamposPreenchidos(camposObrigatorios)) {
                 alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
@@ -235,14 +242,28 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
         }
 
         navigator.clipboard.writeText(textoCopiado)
-            .then(() => alert('Informações copiadas para área de transferência'))
+            .then(() => {
+                alert('Informações copiadas para área de transferência');
+                // Resetar o formulário após a cópia bem-sucedida
+                form.reset();
+            })
             .catch(err => console.error('Erro ao copiar texto: ', err));
     });
+});
 
+// Adicionar evento de clique aos botões de voltar
+document.querySelectorAll('.voltarBtn').forEach(button => {
     button.addEventListener('click', function () {
-        const form = this.closest('.form-container');
+        const formContainer = this.closest('.form-container');
 
         // Resetar todos os formulários ao voltar
         resetForms();
     });
 });
+
+// Função para resetar todos os formulários
+function resetForms() {
+    document.querySelectorAll('.formContent').forEach(form => {
+        form.reset();
+    });
+}
