@@ -28,11 +28,10 @@ document.querySelectorAll('.toggleBtn').forEach(button => {
 // Dados das cidades, slots e elementos
 const dadosCidades = {
     "CDR-Z": {
-        "SLOT 11": ["Pon1 2111 - 3038", "Pon2 2112", "Pon3 2113", "Pon4 2114", "Pon5 2096", "Pon6 2116", "Pon7 2117", "Pon8 2118"],
-        "SLOT 12": ["Pon1 2222 / 172", "Pon2 2222 / Vlan compartilhada segundo o dude", "Pon3 2222", "Pon4 2125", "Pon5 2125 / 640", "Pon6 2048 / 2023", "Pon7 2063", "Pon8 2068 - 2063"],
-        "SLOT 13": ["Pon1 1138 / 1131", "Pon2 2015", "Pon3 1133", "Pon4 1134", "Pon5 2075", "Pon6 2013 / 1136", "Pon7 1137", "Pon8 1138"],
-        "SLOT 3": ["Pon1 (charger - 3031 - Galaxie - 2031) 806", "Pon2 3032 - 2114", "Pon3 (charger 3033) - 2113", "Pon4 ---------", "Pon5 2035", "Pon6 (charger - 3036 - Galaxie - 2036) - 372 - 2020", "Pon7 (charger - 3037 - Galaxie - 2037)", "Pon8 (charger - 3038) - 241 - 533"],
-        "SLOT 7": ["Pon1 2071", "Pon2 2072", "Pon4 2074", "Pon5 2075", "Pon6 2076", "Pon7 2077", "Pon8 2078"],
+        "SLOT 7": ["Pon1 2071", "Pon2 2072", "Pon3 -- " , "Pon4 2074", "Pon5 2075", "Pon6 2076", "Pon7 2077", "Pon8 2078"],
+        "SLOT 11": ["Pon1 2111", "Pon2 2112", "Pon3 2113", "Pon4 2114", "Pon5 2015", "Pon6 2116", "Pon7 2117", "Pon8 2118"],
+        "SLOT 12": ["Pon1 2121", "Pon2 2122", "Pon3 2123", "Pon4 2124", "Pon5 2125", "Pon6 2126", "Pon7 2127", "Pon8 2128"],
+        "SLOT 13": ["Pon1 1131", "Pon2 1132", "Pon3 1133", "Pon4 1134", "Pon5 1135", "Pon6 1136", "Pon7 1137", "Pon8 1138"],
     },
     "RSL-Z": {
         "SLOT 1": ["Pon2 2012", "Pon3 2013", "Pon4 2014", "Pon5 2015 - 165", "Pon6 2016", "Pon7 2017", "Pon8 2018"],
