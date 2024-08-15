@@ -227,7 +227,7 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
                 alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
                 return;
             }
-            textoCopiado = `Mudança de endereço (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\nCliente orientado\nIdentificar Cliente: ${identificarCliente}`;
+            textoCopiado = `Mudança de endereço (com drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
         } else if (tipo === 'MudComDrop') {
             camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, identificarCliente, dropExistente];
             if (!verificarCamposPreenchidos(camposObrigatorios)) {
