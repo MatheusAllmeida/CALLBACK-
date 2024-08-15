@@ -200,6 +200,13 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
                 return;
             }
             textoCopiado = `Ativação-FTTX (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
+        } else if (tipo === 'SemDrop1') {
+            camposObrigatorios = [plano, onu];
+            if (!verificarCamposPreenchidos(camposObrigatorios)) {
+                alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
+                return;
+            }
+            textoCopiado = `Ativação-FTTX\n\nMateriais:\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD`;
         } else if (tipo === 'ComDrop') {
             camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, plano, identificarCliente, onu, dropExistente];
             if (!verificarCamposPreenchidos(camposObrigatorios)) {
