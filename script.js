@@ -215,13 +215,27 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
             }
             textoCopiado = `Ativação-FTTX (com drop)\n\nPossivelmente existe drop em nome de: ${dropExistente}\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
         } else if (tipo === 'MudSemDrop') {
+            camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, identificarCliente];
+            if (!verificarCamposPreenchidos(camposObrigatorios)) {
+                alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
+                return;
+            }
+            textoCopiado = `Mudança de endereço (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCliente orientado a levar equipamentos ao novo endereço\nCabo Drop: ${caboDrop} metros\nIdentificar Cliente: ${identificarCliente}`;
+        } else if (tipo === 'MudSemDropUP') {
             camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, plano, identificarCliente, onu];
             if (!verificarCamposPreenchidos(camposObrigatorios)) {
                 alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
                 return;
             }
-            textoCopiado = `Mudança de endereço (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD\nIdentificar Cliente: ${identificarCliente}`;
+            textoCopiado = `Mudança de endereço (sem drop)\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\nCliente orientado\nIdentificar Cliente: ${identificarCliente}`;
         } else if (tipo === 'MudComDrop') {
+            camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, identificarCliente, dropExistente];
+            if (!verificarCamposPreenchidos(camposObrigatorios)) {
+                alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
+                return;
+            }
+            textoCopiado = `Mudança de endereço (com drop)\n\nPossivelmente existe drop em nome de: ${dropExistente}\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento: ${caixaAtendimento}\nOLT: ${olt}\nLocalização: ${localizacao}\n\nMateriais:\nCabo Drop: ${caboDrop} metros\nIdentificar Cliente: ${identificarCliente}`;
+        } else if (tipo === 'MudComDropUP') {
             camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, plano, identificarCliente, onu, dropExistente];
             if (!verificarCamposPreenchidos(camposObrigatorios)) {
                 alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
