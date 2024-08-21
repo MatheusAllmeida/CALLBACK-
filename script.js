@@ -206,7 +206,7 @@ document.querySelectorAll('.copiarBtn').forEach(button => {
                 alert('Por favor, preencha todos os campos obrigatórios antes de copiar.');
                 return;
             }
-            textoCopiado = `Ativação-FTTX\n\nNão documentado GEOGRID para realizar ativação pelo APP\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimentom mais próxima: ${caixaAtendimento}\nLocalização: ${localizacao}\nMateriais:\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD`;
+            textoCopiado = `Ativação-FTTX\n\nNão documentado GEOGRID para realizar ativação pelo APP\n\nTipo Caixa de Atendimento: ${tipoCaixaAtendimento}\nCaixa de Atendimento mais próxima: ${caixaAtendimento}\nLocalização: ${localizacao}\nMateriais:\n01 ROTEADOR WIRELESS: ${plano}\n01 ONU: ${onu}\n01 PATCH CORD`;
         } else if (tipo === 'ComDrop') {
             camposObrigatorios = [tipoCaixaAtendimento, caixaAtendimento, olt, localizacao, plano, identificarCliente, onu, dropExistente];
             if (!verificarCamposPreenchidos(camposObrigatorios)) {
